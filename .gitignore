@@ -35,3 +35,4 @@
 *.ist
 *.fls
 *.fdb_latexmk
+.tmp.driveupload/
