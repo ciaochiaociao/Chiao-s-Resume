@@ -43,15 +43,15 @@
 \setlength{\tabcolsep}{0in}  % Adjusts the space between columns in a table
 
 % Sections formatting
-\titleformat{\section}{\vspace{-2pt minus 4pt}\scshape\raggedright\large}{}{0em}{}
+\titleformat{\section}{\vspace{0pt minus 4pt}\scshape\raggedright\large}{}{0em}{}
   [\color{black}\titlerule\vspace{1pt}]  % \titleformat{command}{format}{label}{sep}{before-code}[after-code]
 
-\titlespacing{\section}{0pt}{2pt plus 4pt minus 6pt}{4pt plus 2pt minus 2pt}  % adjust spacing as needed: 1st value is left, 2nd is top, 3rd is bottom  
+\titlespacing{\section}{0pt}{6pt plus 4pt minus 6pt}{4pt plus 2pt minus 2pt}  % adjust spacing as needed: 1st value is left, 2nd is top, 3rd is bottom  
 
 % list settings: leftmargin, topsep, parsep (multi-paragraph separation), before, after, itemsep
 % 1st-level itemize: resumeSubHeadingList, alphabetList, arabicList, bulletedList, simpleList
-\setlist[itemize]{leftmargin=0.15in, itemsep=-2pt, topsep=3pt, parsep=2pt}
-\setlist[enumerate]{itemsep=-2pt}
+\setlist[itemize]{leftmargin=0.15in, itemsep=3pt, topsep=3pt, parsep=2pt}
+\setlist[enumerate]{itemsep=3pt}
 % 2nd-level itemize: resumeItemList
 \setlist[itemize,2]{leftmargin=0.3in, before=\vspace{-5pt}\small, after=\vspace{-1pt}, itemsep=0pt}
 
@@ -79,7 +79,7 @@
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{1pt}
+    \end{tabular*}\vspace{3pt}
     % \vspace{-7pt}
 }
 

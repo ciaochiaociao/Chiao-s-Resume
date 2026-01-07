@@ -24,14 +24,21 @@
 
 %%%%%% Flags %%%%%%
 \newif\ifML  % Machine Learning
+\newif\ifExtraForML  % Extra for Machine Learning
+\newif\ifFullForML  % Extra for Machine Learning 2
+\newif\ifgraduated  % Extra for Machine Learning 2
 \newif\ifCV  % Computer Vision
 \newif\ifNLP  % Natural Language Processing
 \newif\ifFrontend  % Frontend Development
 \newif\ifBackend  % Backend Development
 \newif\ifSoftHard  % Software and Hardware Development
 \newif\ifSWE  % Software Engineer
+\newif\ifTaiwaneseDegree  % Taiwanese Degree
 
 \ifdefined\ML \MLtrue \fi
+\ifdefined\ExtraForML \ExtraForMLtrue \fi
+\ifdefined\FullForML \FullForMLtrue \fi
+\ifdefined\graduated \graduatedtrue \fi
 \ifdefined\SWE \SWEtrue \fi
 \ifdefined\CV \CVtrue \fi
 \ifdefined\NLP \NLPtrue \fi
@@ -39,6 +46,7 @@
 \ifdefined\Frontend \Frontendtrue \fi
 \ifdefined\Backend \Backendtrue \fi
 \ifdefined\SoftHard \SoftHardtrue \fi
+\ifdefined\TaiwaneseDegree \TaiwaneseDegreetrue \fi
 
 % internal flags
 \newif\ifStartup  % Startup
@@ -47,6 +55,16 @@
 \newif\ifRL  % Reinforcement Learning
 \newif\ifLowLevel  % Low-Level Development
 \newif\ifHardware  % Hardware Development
+
+\ifFullForML
+  % \ExtraForMLtrue
+  \WebDevtrue
+  \LowLeveltrue
+  \Frontendtrue
+  \Backendtrue
+  \Startuptrue
+  \Hardwaretrue
+\fi
 
 \ifML
  \CVtrue
@@ -74,7 +92,6 @@
   \WebDevtrue
 \fi
 
-
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
@@ -88,23 +105,32 @@
       \input{sections/edu/0-su.tex}
       \input{sections/edu/1-nu.tex}
       % \input{sections/edu/2-csu.tex}
-      \ifHardware
-        \input{sections/edu/34-ncku-ntu-ghent.tex}
+      \ifTaiwaneseDegree
+        % \input{sections/edu/34-ncku-ntu-ghent.tex}
+        \input{sections/edu/3-ntu-ghent.tex}
+        \input{sections/edu/4-ncku.tex}
       \fi
     \resumeSubHeadingListEnd
 
   %-----------EXPERIENCE-----------
-  \section[Expeirence]{{\small\faBriefcase}~Experience}
+  \section[Experence]{{\small\faBriefcase}~Experience}
     \resumeSubHeadingListStart
+      \input{sections/exp/7-tesla-ml-engineer.tex}
       \input{sections/exp/6-ml-intern.tex}
       \input{sections/exp/1-as.tex}
-      % \input{sections/exp/2-luye-goatai.tex}
+      \ifFullForML
+        \input{sections/exp/2-luye-goatai.tex}
+        \input{sections/exp/5-military-foreign-service.tex}
+        \input{sections/exp/4-2nd-life-tidyman(draft).tex}
+        \input{sections/exp/3-shield.tex}
+      \fi
     \resumeSubHeadingListEnd
 
   %-----------PROJECTS-------------
   \section[Projects]{{\small\faLaptopCode}~Projects}
     \resumeSubHeadingListStart
       \ifML
+        \input{sections/proj/24-recruitsim.tex}
         \input{sections/proj/14-deep-rl-stock-trading.tex}
         \input{sections/proj/22-multidoc-analysis.tex}
       \fi
@@ -149,5 +175,16 @@
   %-----------HONORS---------------
   \section[Honors]{{\small\faTrophy}~Honors}
     \input{sections/honors.tex}
+
+  \ifExtraForML
+    \section[Other Projects]{{\small\faLaptopCode}~Other Projects}
+    \resumeSubHeadingListStart
+
+      \input{sections/proj/1-savor-virtualchef.tex}
+      \input{sections/proj/4-carpanion.tex}
+    \resumeSubHeadingListEnd
+  \fi
+    
+    
 
 \end{document}

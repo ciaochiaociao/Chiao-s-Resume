@@ -35,6 +35,15 @@ PREFIX = Chiao-Wei_Hsu
 # Define resume versions
 all: ML Frontend Backend SWE SH full
 
+graduated:
+	latexmk $(LATEXMK_FLAGS) -jobname=$(PREFIX)-graduated -usepretex="\def\ML{}\def\FullForML{}\def\graduated{}" $(BASE).tex
+
+MLFull:
+	latexmk $(LATEXMK_FLAGS) -jobname=$(PREFIX)-MLFull -usepretex="\def\ML{}\def\FullForML{}" $(BASE).tex
+
+ML2:
+	latexmk $(LATEXMK_FLAGS) -jobname=$(PREFIX)-ML2 -usepretex="\def\ML{}\def\ExtraForML{}" $(BASE).tex
+
 ML:
 	latexmk $(LATEXMK_FLAGS) -jobname=$(PREFIX)-ML -usepretex="\def\ML{}" $(BASE).tex
 
@@ -51,7 +60,7 @@ SH:
 	latexmk $(LATEXMK_FLAGS) -jobname=$(PREFIX)-SH -usepretex="\def\SoftHard{}" $(BASE).tex
 
 full:
-	latexmk $(LATEXMK_FLAGS) -jobname=$(PREFIX)-Full -usepretex="\def\ML{}\def\Frontend{}\def\Backend{}\def\SoftHard{}" $(BASE).tex
+	latexmk $(LATEXMK_FLAGS) -jobname=$(PREFIX)-Full -usepretex="\def\ML{}\def\Frontend{}\def\Backend{}\def\SoftHard{}\def\graduated{}\def\FullForML{}\def\TaiwaneseDegree{}" $(BASE).tex
 
 # Clean up auxiliary files
 clean:
